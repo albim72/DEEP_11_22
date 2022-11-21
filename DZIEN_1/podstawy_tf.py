@@ -27,3 +27,5 @@ loss_fn(y_train[:1],predictions).numpy()
 model.compile(optimizer='adam',
               loss=loss_fn,
               metrics=['accuracy'])
+
+model.fit(x_train,y_train,epochs=5)
