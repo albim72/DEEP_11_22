@@ -14,3 +14,10 @@ model = tf.keras.models.Sequential([
     tf.keras.layers.Dropout(0.2),
     tf.keras.layers.Dense(10)
 ])
+
+
+#logit -> wektor wyników /log-odds -> zawsze jeden dla każdej klasy!
+
+predictions = model(x_train[:1]).numpy()
+predictions
+
