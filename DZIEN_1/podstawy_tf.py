@@ -29,3 +29,9 @@ model.compile(optimizer='adam',
               metrics=['accuracy'])
 
 model.fit(x_train,y_train,epochs=5)
+
+probability_model = tf.keras.Sequential([
+    model,
+    tf.keras.layers.Softmax()
+])
+probability_model(x_test[:5])
