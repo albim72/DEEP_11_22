@@ -32,3 +32,12 @@ print(n)
 print((lambda r:r*4)(3))
 
 num = [5,3,2,11,-32,0,13,122,6,9,10]
+
+nparz = list(filter(lambda x:x%2==0,num))
+print(nparz)
+
+cube = list(map(lambda x:x**3,num))
+print(cube)
+
+data = [i**4 for i in range(1000000)]
+print(data)
