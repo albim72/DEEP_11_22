@@ -114,3 +114,9 @@ img = test_images[1]
 print(img.shape)
 img = np.expand_dims(img,0)
 print(img.shape)
+
+plot_value_array(1,predictions_single[0],test_labels)
+_ = plt.xticks(range(10),class_names,rotation=45)
+plt.show()
+
+np.argmax(predictions_single[0])
