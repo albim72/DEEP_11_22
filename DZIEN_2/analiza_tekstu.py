@@ -85,3 +85,6 @@ first_review, first_label = text_batch[0], label_batch[0]
 print(f"recenzja: {first_review}")
 print(f"etykieta: {raw_train_ds.class_names[first_label]}")
 print(f"Zwektoryzowana recenzja: {vectorize_text(first_review,first_label)}")
+
+print(f"1287 --> {vectorize_layer.get_vocabulary()[1287]}")
+print(f"313 --> {vectorize_layer.get_vocabulary()[313]}")
