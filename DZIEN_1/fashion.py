@@ -48,3 +48,7 @@ probability_model = tf.keras.Sequential([
 ])
 
 predictions = probability_model.predict(test_images)
+predictions[0]
+np.argmax(predictions[0])
+
+
