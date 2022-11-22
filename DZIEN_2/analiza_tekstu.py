@@ -66,4 +66,12 @@ def custom_standarization(input_data):
   stripped_html = tf.strings.regex_replace(lowercase,'<br />',' ')
   return tf.strings.regex_replace(stripped_html,'[%s]' %re.escape(string.punctuation),'')
 
+max_features = 10000
+sequence_length = 250
 
+vectorize_layer = layers.TextVectorization(
+    standardize = custom_standarization,
+    max_tokens = max_features,
+    output_mode = 'int',
+    output_sequence_length = sequence_length
+)
