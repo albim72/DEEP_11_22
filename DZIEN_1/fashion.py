@@ -47,4 +47,4 @@ probability_model = tf.keras.Sequential([
     tf.keras.layers.Softmax()
 ])
 
-
+predictions = probability_model.predict(test_images)
