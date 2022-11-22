@@ -78,3 +78,10 @@ vectorize_layer = layers.TextVectorization(
 
 train_text = raw_train_ds.map(lambda x,y:x)
 vectorize_layer.adapt(train_text)
+
+
+text_batch,label_batch = next(iter(raw_train_ds))
+first_review, first_label = text_batch[0], label_batch[0]
+print(f"recenzja: {first_review}")
+print(f"etykieta: {raw_train_ds.class_names[first_label]}")
+print(f"Zwektoryzowana recenzja: {vectorize_text(first_review,first_label)}")
