@@ -83,3 +83,20 @@ while la >=0:
                 wm[i] = wm[i] + la*(x[i]-wm[i])
     la = la - dla
 
+#trenowanie sieci oraz wyniki
+
+data = list()
+for i in range(len(W)):
+    data.append(list())
+dfList = df['class']
+# print(dfList.to_list)
+
+ds = list()
+i=0
+for x in X:
+    i_n = find_closest(W,x)[1]
+    data[i_n].append(x)
+    ds.append([i_n,dfList[i]])
+    i+=1
+
+print(ds)
