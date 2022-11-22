@@ -61,16 +61,15 @@ def plot_image(i,predictions_array,true_label,img):
     plt.yticks([])
     plt.imshow(img,cmap=plt.cm.binary)
     predicted_label = np.argmax(predictions_array)
-    if predictions_array == true_label:
+    if predicted_label == true_label:
         color = 'blue'
     else:
         color='red'
     plt.xlabel("{} {:2.0f}% ({})".format(
         class_names[predicted_label],
-        100*np.max(predicted_label),
+        100*np.max(predictions_array),
         class_names[true_label]
     ),color=color)
-    
     
 def plot_value_array(i,predictions_array,true_label):
     true_label = true_label[i]
@@ -83,3 +82,10 @@ def plot_value_array(i,predictions_array,true_label):
 
     thisplot[predicted_label].set_color('red')
     thisplot[true_label].set_color('blue')
+i=0
+plt.figure(figsize=(6,3))
+plt.subplot(1,2,1)
+plot_image(i,predictions[i],test_labels,test_images)
+plt.subplot(1,2,2)
+plot_value_array(i,predictions[i],test_labels)
+plt.show()
