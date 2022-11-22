@@ -46,5 +46,29 @@ for i in range(nc):
     for j in range(N):
         W[i].append(get_weights()*0.5)
 
+#funkcja obliczająca oodległość Euklidesową pomiędzy wektorami x i w
+
+def distance(w,x):
+    r=0
+    for i in range(len(w)):
+        r = r + (w[i]-x[i])**2
+    r = np.sqrt(r)
+    return r
+
+#funkcja szukająca wektory x najbliższe wektorom w
+def find_closest(W,x):
+    wm = W[0]
+    r = distance(wm,x)
+    i = 0
+    i_n = i
+    for w in W:
+        if distance(w,x) < r:
+            r = distance(w,x)
+            wm = w
+            i_n = i
+        i += 1
+    return (wm,i_n)
+
+
 
 
