@@ -26,3 +26,10 @@ model.add(layers.MaxPooling2D((2,2)))
 model.add(layers.Conv2D(64,(3,3),activation='relu'))
 
 model.summary()
+
+#kompilacja i trenowanie modelu
+model.compile(optimizer='adam',
+              loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
+              metrics=['accuracy'])
+
+history = model.fit(train_images,train_labels,epochs=10,validation_data=(test_images,test_labels))
