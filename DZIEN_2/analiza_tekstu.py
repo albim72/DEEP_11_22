@@ -54,5 +54,11 @@ raw_val_ds = tf.keras.utils.text_dataset_from_directory(
 
 )
 
+raw_test_ds = tf.keras.utils.text_dataset_from_directory(
+    'aclImdb/test',
+    batch_size=batch_size
+    
+)
+
 
 
