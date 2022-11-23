@@ -21,3 +21,14 @@ dataset.tail()
 
 train_dataset = dataset.sample(frac=0.8, random_state=0)
 test_dataset = dataset.drop(train_dataset.index)
+
+
+sns.pairplot(train_dataset[['mpg','cylinders','displacement','weight']],diag_kind='kde')
+
+train_dataset.describe().transpose()
+
+train_features = train_dataset.copy()
+test_features = test_dataset.copy()
+
+train_labels = train_features.pop('mpg')
+test_labels = test_features.pop('mpg')
