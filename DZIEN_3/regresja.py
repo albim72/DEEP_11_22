@@ -19,3 +19,5 @@ raw_dataset = pd.read_csv('auto-mpg.csv',na_values='?',comment='\t',sep=',',skip
 dataset = raw_dataset.copy()
 dataset.tail()
 
+train_dataset = dataset.sample(frac=0.8, random_state=0)
+test_dataset = dataset.drop(train_dataset.index)
