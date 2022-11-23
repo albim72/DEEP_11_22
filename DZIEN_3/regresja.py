@@ -47,3 +47,9 @@ train_dataset.describe().transpose()[['mean','std']]
 normalizer = tf.keras.layers.Normalization(axis = -1)
 
 normalizer.adapt(np.array(train_features))
+
+#regresja liniowa
+horsepower = np.array(train_features['horsepower'])
+
+horsepower_normalizer = layers.Normalization(input_shape=[1,], axis=None)
+horsepower_normalizer.adapt(horsepower)
