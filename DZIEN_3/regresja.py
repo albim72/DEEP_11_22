@@ -53,3 +53,16 @@ horsepower = np.array(train_features['horsepower'])
 
 horsepower_normalizer = layers.Normalization(input_shape=[1,], axis=None)
 horsepower_normalizer.adapt(horsepower)
+horsepower_model = tf.keras.Sequential([
+horsepower_normalizer,
+layers.Dense(units=1)
+])
+
+horsepower_model.summary()
+
+horsepower_model.predict(horsepower[:10])
+
+horsepower_model.compile(
+    optimizer = tf.optimizers.Adam(learning_rate=0.1),
+    loss = 'mean_absolute_error'
+)
