@@ -89,5 +89,19 @@ def plot_loss(history):
     plt.grid(True)
     
 plot_loss(history)
+test_result ={}
+test_result['horsepower_model'] = horsepower_model.evaluate(
+    test_features['horsepower'],
+    test_labels,verbose=0
+)
+x = tf.linspace(0.0,250,251)
+y = horsepower_model.predict(x)
+def plot_horsepower(x,y):
+    plt.scatter(train_features['horsepower'],train_labels,label='Dane')
+    plt.plot(x,y,color='k', label='prognoza')
+    plt.xlabel('horsepower')
+    plt.ylabel('mpg')
+    plt.legend()
+plot_horsepower(x,y)
     
     
